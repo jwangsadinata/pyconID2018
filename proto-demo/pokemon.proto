@@ -1,0 +1,23 @@
+syntax = "proto3";
+package pokemon;
+
+service PokemonService {                     
+    rpc Get (GetReq) returns (Pokemon) {}
+}
+
+message GetReq {   
+    int32 id = 1;
+}
+
+message Pokemon {
+    string name = 1;
+    int32 id = 2;
+
+    enum Rarity {
+        NORMAL = 0;
+        LEGENDARY = 1;
+        MYTHIC = 2;
+    }
+
+    Rarity rarity = 3;
+}
